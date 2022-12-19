@@ -7,7 +7,8 @@ export const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const initialState = {
         location: null,
-        data: null
+        data: null,
+        error: null
     };
 
     const [data, dispatch] = useReducer(reducer, initialState);
