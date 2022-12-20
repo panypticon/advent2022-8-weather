@@ -3,14 +3,17 @@ import { useEffect, useContext } from 'react';
 import getPromisifedCurrentLocation from '../../utils/getPromisifiedCurrentLocation';
 import { AppContext } from '../../context/AppContext';
 import { addCoords, throwError } from '../../reducer/actions';
+import useRequests from '../../hooks/useRequests';
+import Day from '../Day/Day';
 
 import './App.scss';
-import useRequests from '../../hooks/useRequests';
 
 const App = () => {
     const { data, dispatch } = useContext(AppContext);
 
     console.log({ data, dispatch });
+
+    const dataLoaded = data.location && data.data;
 
     // Direct async errors to ErrorBoundary
     useEffect(() => {
@@ -39,10 +42,15 @@ const App = () => {
         <main className="App">
             {isLoading ? (
                 <h1>Loading…</h1>
-            ) : (
+            ) : dataLoaded ? (
                 <>
                     <h1>Weather for {data.location.name}</h1>
+                    {data.data.map(day => (
+                        <Day data={day} />
+                    ))}
                 </>
+            ) : (
+                <></>
             )}
         </main>
     );
