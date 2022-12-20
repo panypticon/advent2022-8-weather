@@ -35,7 +35,17 @@ const App = () => {
     // Trigger requests
     const { isLoading } = useRequests(data.coords, dispatch);
 
-    return <div className="App"></div>;
+    return (
+        <main className="App">
+            {isLoading ? (
+                <h1>Loading…</h1>
+            ) : (
+                <>
+                    <h1>Weather for {data.location.name}</h1>
+                </>
+            )}
+        </main>
+    );
 };
 
 export default App;
