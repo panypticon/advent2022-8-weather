@@ -1,2 +1,24 @@
 .Day {
+    &__weather {
+        &--cloudy,
+        &--partly-cloudy {
+            background-color: #4db0d3;
+        }
+
+        &--rainy {
+            background-color: #2b8bad;
+        }
+
+        &--snowy {
+            background-color: #bce1ef;
+        }
+
+        &--stormy {
+            background-color: #0e2e3a;
+        }
+
+        &--sunny {
+            background-color: #e6df95;
+        }
+    }
 }

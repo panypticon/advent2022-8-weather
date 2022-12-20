@@ -11,8 +11,6 @@ import './App.scss';
 const App = () => {
     const { data, dispatch } = useContext(AppContext);
 
-    console.log({ data, dispatch });
-
     const dataLoaded = data.location && data.data;
 
     // Direct async errors to ErrorBoundary
@@ -35,7 +33,7 @@ const App = () => {
         })();
     }, [dispatch]);
 
-    // Trigger requests
+    // Trigger request
     const { isLoading } = useRequests(data.coords, dispatch);
 
     return (
@@ -46,7 +44,7 @@ const App = () => {
                 <>
                     <h1>Weather for {data.location.name}</h1>
                     {data.data.map(day => (
-                        <Day data={day} />
+                        <Day data={day} key={day.date_epoch} />
                     ))}
                 </>
             ) : (

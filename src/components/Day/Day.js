@@ -1,3 +1,12 @@
+import { useState, useEffect } from 'react';
+
+import iconMapping from '../../utils/iconMapping';
+
+import './Day.scss';
+
+import lowIcon from '../../assets/low.svg';
+import precipitationIcon from '../../assets/precipitation.svg';
+
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const Day = ({
@@ -13,6 +22,16 @@ const Day = ({
     }
 }) => {
     const parsedDate = new Date(date);
+    const iconName = iconMapping[condition];
+
+    const [icon, setIcon] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            const { default: img } = await import(`../../assets/${iconName}.svg`);
+            setIcon(img);
+        })();
+    }, [iconName]);
 
     return (
         <article className="Day" key={date_epoch}>
@@ -20,11 +39,17 @@ const Day = ({
                 <span className="Day__date-day">{weekdays[parsedDate.getDay()]}</span>
                 <span className="Day__date-date">{parsedDate.getDate()}</span>
             </section>
-            <section className="Day__weather">
-                <div className="Day__weather-img"></div>
+            <section className={`Day__weather Day__weather--${iconName}`}>
+                <div className="Day__weather-icon">{icon && <img src={icon} alt={iconName} />}</div>
                 <div className="Day__weather-high">{Math.round(high)}°</div>
-                <div className="Day__weather-low">{Math.round(low)}°</div>
-                <div className="Day__weather-chanceofrain">{chanceOfRain}%</div>
+                <div className="Day__weather-chanceofrain">
+                    <img src={precipitationIcon} alt="Precipitation icon" />
+                    <span>{chanceOfRain}%</span>
+                </div>
+                <div className="Day__weather-low">
+                    <img src={lowIcon} alt="low icon" />
+                    <span>{Math.round(low)}°</span>
+                </div>
             </section>
         </article>
     );
