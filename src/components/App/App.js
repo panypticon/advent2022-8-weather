@@ -5,6 +5,7 @@ import { AppContext } from '../../context/AppContext';
 import { addCoords, throwError } from '../../reducer/actions';
 
 import './App.scss';
+import useRequests from '../../hooks/useRequests';
 
 const App = () => {
     const { data, dispatch } = useContext(AppContext);
@@ -16,7 +17,7 @@ const App = () => {
         if (data.error) throw new Error(data.error);
     }, [data.error]);
 
-    // Get geolocation
+    // Get geolocation coords
     useEffect(() => {
         (async () => {
             try {
@@ -30,6 +31,9 @@ const App = () => {
             }
         })();
     }, [dispatch]);
+
+    // Trigger requests
+    const { isLoading } = useRequests(data.coords, dispatch);
 
     return <div className="App"></div>;
 };

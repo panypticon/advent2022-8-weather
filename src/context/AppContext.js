@@ -6,6 +6,7 @@ export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
     const initialState = {
+        coords: null,
         location: null,
         data: null,
         error: null
