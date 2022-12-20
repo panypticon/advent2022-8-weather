@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/advent2022-8-weather/static/css/main.33d6e4c9.css",
+    "main.js": "/advent2022-8-weather/static/js/main.ca475d45.js",
+    "static/js/496.643c0ea6.chunk.js": "/advent2022-8-weather/static/js/496.643c0ea6.chunk.js",
+    "index.html": "/advent2022-8-weather/index.html",
+    "main.33d6e4c9.css.map": "/advent2022-8-weather/static/css/main.33d6e4c9.css.map",
+    "main.ca475d45.js.map": "/advent2022-8-weather/static/js/main.ca475d45.js.map",
+    "496.643c0ea6.chunk.js.map": "/advent2022-8-weather/static/js/496.643c0ea6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33d6e4c9.css",
+    "static/js/main.ca475d45.js"
+  ]
+}
