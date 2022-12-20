@@ -43,9 +43,11 @@ const App = () => {
             ) : dataLoaded ? (
                 <>
                     <h1>Weather for {data.location.name}</h1>
-                    {data.data.map(day => (
-                        <Day data={day} key={day.date_epoch} />
-                    ))}
+                    <div className="App__weather">
+                        {data.data.map(day => (
+                            <Day data={day} key={day.date_epoch} />
+                        ))}
+                    </div>
                 </>
             ) : (
                 <></>
