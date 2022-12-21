@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadvent2022_8_weather=self.webpackChunkadvent2022_8_weather||[]).push([[959],{959:function(e,t,a){e.exports=a.p+"static/media/snowy.3af30c92d08c06827e8b.svg"}}]);
