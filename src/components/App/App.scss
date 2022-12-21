@@ -26,4 +26,12 @@ body {
     &__weather {
         display: flex;
     }
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 3.8rem;
+        margin-bottom: 2.4rem;
+        color: #0e2e3a;
+    }
 }

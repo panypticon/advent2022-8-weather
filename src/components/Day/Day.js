@@ -36,8 +36,8 @@ const Day = ({
     return (
         <article className="Day" key={date_epoch}>
             <section className="Day__date">
-                <span className="Day__date-day">{weekdays[parsedDate.getDay()]}</span>
-                <span className="Day__date-date">{parsedDate.getDate()}</span>
+                <div className="Day__date-day">{weekdays[parsedDate.getDay()]}</div>
+                <div className="Day__date-date">{parsedDate.getDate()}</div>
             </section>
             <section className={`Day__weather Day__weather--${iconName}`}>
                 <div className="Day__weather-icon">{icon && <img src={icon} alt={iconName} />}</div>

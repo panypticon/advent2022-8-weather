@@ -1,24 +1,108 @@
 .Day {
+    font-family: Oswald, sans-serif;
+    font-size: 2.6rem;
+
+    &__date {
+        &-day {
+            font-size: 2.4rem;
+            text-transform: uppercase;
+        }
+
+        &-date {
+            font-size: 6.4rem;
+            margin-top: -1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        > * {
+            text-align: center;
+        }
+    }
+
     &__weather {
+        margin: 0 1.6rem;
+        box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.25), 1.6rem 0.6rem 4.8rem rgba(32, 77, 92, 0.7);
+        border-radius: 4.8rem;
+        width: 18rem;
+        padding: 3.2rem;
+
+        &-icon {
+            width: calc(100% + 3.2rem + 6.4rem);
+            aspect-ratio: 16 / 9;
+            transform: translateX(-4.8rem);
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-high {
+            text-align: center;
+            font-size: 10rem;
+            margin: 1rem 0 4rem 0;
+        }
+
+        &-low,
+        &-chanceofrain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        &-chanceofrain {
+            margin-bottom: 1rem;
+        }
+
         &--cloudy,
         &--partly-cloudy {
             background-color: #4db0d3;
+            color: #e6df95;
+
+            .Day__weather-chanceofrain,
+            .Day__weather-low {
+                color: #d3ebf4;
+            }
         }
 
         &--rainy {
             background-color: #2b8bad;
+            color: #e6df95;
+
+            .Day__weather-chanceofrain,
+            .Day__weather-low {
+                color: #d3ebf4;
+            }
         }
 
         &--snowy {
             background-color: #bce1ef;
+            color: #0e2e3a;
+
+            .Day__weather-chanceofrain,
+            .Day__weather-low {
+                color: #247490;
+            }
         }
 
         &--stormy {
             background-color: #0e2e3a;
+            color: #e6df95;
+
+            .Day__weather-chanceofrain,
+            .Day__weather-low {
+                color: #d3ebf4;
+            }
         }
 
         &--sunny {
             background-color: #e6df95;
+            color: #4db0d3;
+
+            .Day__weather-chanceofrain,
+            .Day__weather-low {
+                color: #247490;
+            }
         }
     }
 }
